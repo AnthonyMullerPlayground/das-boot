@@ -4,6 +4,9 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -37,6 +40,6 @@ public class ShipwreckControllerTest {
 		
 		verify(shipwreckRepository).findOne(1L);
 		
-		assertEquals(1L, wreck.getId().longValue());
+		assertThat(wreck.getId(), is(1L));
 	}
 }
